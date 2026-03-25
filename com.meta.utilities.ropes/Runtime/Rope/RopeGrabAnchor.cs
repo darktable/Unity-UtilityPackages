@@ -72,7 +72,7 @@ namespace Meta.Utilities.Ropes
                 m_anchor.BindDistance = m_gripWidth / m_ropeSystem.TotalLength;
                 m_body.isKinematic = false;
             }
-            else
+            else if (Hand != null)
             {
                 m_body.isKinematic = true;
                 transform.position = m_ropeSystem.RopeSimulation.ClosestPointOnRope(Hand.transform.position);

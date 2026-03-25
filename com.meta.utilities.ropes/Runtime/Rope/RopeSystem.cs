@@ -5,9 +5,7 @@ using SplineEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using Oculus.Interaction.Input;
-
-
-
+using UnityEngine.Assertions;
 
 
 #if UNITY_EDITOR
@@ -249,6 +247,8 @@ namespace Meta.Utilities.Ropes
         [SerializeField] protected SyntheticHand m_leftHand, m_rightHand;
         protected virtual void SetupHandRefs()
         {
+            Assert.IsNotNull(m_leftHand, "Left hand is not assigned");
+            Assert.IsNotNull(m_rightHand, "Right hand is not assigned");
             // Set the references to the left and right hands its easier to define these elsewhere but this is also fine
             m_grabAnchors[0].Hand = m_leftHand;
             m_grabAnchors[1].Hand = m_rightHand;
